@@ -1,8 +1,10 @@
-var ur = window.location.href;
-var url = parseInt(ur.slice(32));
-var vidWidth = 650;
-var vidHeight = 366;
-var vidSource = 'https://www.youtube.com/embed/';
+const ur = window.location.href;
+const sliceIndex = ur.lastIndexOf('/') + 1;
+const pagenumberStr = ur.slice(sliceIndex);
+let url = parseInt(pagenumberStr);
+let vidWidth = 650;
+let vidHeight = 366;
+let vidSource = 'https://www.youtube.com/embed/';
 
 if (url == 31){ vidSource = 'https://www.youtube.com/embed/xhhZVo9GZns';
 }else if (url == 77){ vidSource = 'https://www.youtube.com/embed/OC-lu_etKRc';
@@ -295,16 +297,18 @@ if (url == 31){ vidSource = 'https://www.youtube.com/embed/xhhZVo9GZns';
 }else{ vidSource = 'https://www.youtube.com/embed/oHg5SJYRHA0'; 
 }
 
-if (ur.slice(32) == 'pony'){ vidSource = 'https://www.youtube.com/embed/KUc9UYunXZ4';
-}else if (ur.slice(32) == 'pony2'){ vidSource = 'https://www.youtube.com/embed/Fwu7SP-oyys';
-}else if (ur.slice(32) == 'darkcage'){ vidSource = 'https://www.youtube.com/embed/QlcCyV48sH8';
-}else if (ur.slice(32) == 'darkcage2'){ vidSource = 'https://www.youtube.com/embed/jJZFj8u4ldc';
+if (ur.slice(sliceIndex) == 'pony'){ vidSource = 'https://www.youtube.com/embed/KUc9UYunXZ4';
+}else if (ur.slice(sliceIndex) == 'pony2'){ vidSource = 'https://www.youtube.com/embed/Fwu7SP-oyys';
+}else if (ur.slice(sliceIndex) == 'darkcage'){ vidSource = 'https://www.youtube.com/embed/QlcCyV48sH8';
+}else if (ur.slice(sliceIndex) == 'darkcage2'){ vidSource = 'https://www.youtube.com/embed/jJZFj8u4ldc';
 }
 
 var flashWarning = document.getElementById('o_no-flash');
 
 if (flashWarning != null) {
 	flashWarning.parentNode.removeChild(flashWarning);
+    
+    flashWarning = null;
 }
 
 if (url != 253 && url != 397 && url != 918 && url != 1358 && url != 1685 && url != 1720 && url != 2792 && url != 4815 && url != 6901 && url != 7405 && url != 7635) {
@@ -314,6 +318,9 @@ var meenahFrame = document.getElementById('JterniaDeploy');
 if (meenahFrame != null) {
 	var meenahFrameParent = meenahFrame.parentNode;
 	meenahFrameParent.removeChild(meenahFrame);
+	
+	meenahFrame = null;
+	
 	var newMeenahFrame = document.createElement('iframe');
 	newMeenahFrame.setAttribute('frameborder', 0);
 	newMeenahFrame.setAttribute('allowfullscreen', true);
@@ -328,6 +335,9 @@ var videoFrame = document.getElementById('o_flash-container');
 if (videoFrame != null) {
 	var videoFrameParent = videoFrame.parentNode;
 	videoFrameParent.removeChild(videoFrame);
+        
+    videoFrame = null;
+
 	var newVideoFrame = document.createElement('iframe');
 	newVideoFrame.setAttribute('frameborder', 0);
 	newVideoFrame.setAttribute('allowfullscreen', true);
@@ -418,6 +428,9 @@ var htmlFrame = document.getElementById('animation_container');
 if (htmlFrame != null) {
 	var htmlFrameParent = htmlFrame.parentNode;
 	htmlFrameParent.removeChild(htmlFrame);
+	
+	htmlFrame = null;
+	
 	var newHtmlFrame = document.createElement('iframe');
 	newHtmlFrame.setAttribute('frameborder', 0);
 	newHtmlFrame.setAttribute('allowfullscreen', true);
@@ -1453,6 +1466,8 @@ if (htmlFrame != null) {
 	var delContent = document.getElementsByClassName('mar-x-auto disp-bl bg-hs-gray pad-t-lg');
 	var parentContent = delContent[0].parentNode;
 	parentContent.removeChild(delContent[0]);
+	
+	delContent[0] = null;
 		
 	var htmlFrame = document.getElementById('animation_container');
 
@@ -1460,6 +1475,9 @@ if (htmlFrame != null) {
 		
 		var htmlFrameParent = htmlFrame.parentNode;
 		htmlFrameParent.removeChild(htmlFrame);
+		
+		htmlFrame = null;
+		
 		var newHtmlFrame = document.createElement('iframe');
 		newHtmlFrame.setAttribute('frameborder', 0);
 		newHtmlFrame.setAttribute('allowfullscreen', true);
@@ -1499,10 +1517,19 @@ if (htmlFrame != null) {
 	
 	delContent = document.getElementsByClassName('type-center type-hs-bottom pad-y-0 pad-x-lg');
 	delContent[delContent.length-1].parentNode.removeChild(delContent[delContent.length-1]);
+	
+	delContent[delContent.length-1] = null;
+	
 	delContent = document.getElementsByClassName('pad-t-md');
 	delContent[delContent.length-3].parentNode.removeChild(delContent[delContent.length-3]);
+	
+	delContent[delContent.length-3] = null;
+	
 	delContent = document.getElementsByClassName('mar-x-auto disp-bl');
 	delContent[delContent.length-2].parentNode.removeChild(delContent[delContent.length-2]);
+	
+	delContent[delContent.length-2] = null;
+	
 }else if (url == 397){
 	
 	var htmlFrame = document.getElementById('animation_container');
@@ -1511,6 +1538,9 @@ if (htmlFrame != null) {
 		
 		var htmlFrameParent = htmlFrame.parentNode;
 		htmlFrameParent.removeChild(htmlFrame);
+		
+		htmlFrame = null;
+		
 		var newHtmlFrame = document.createElement('iframe');
 		newHtmlFrame.setAttribute('frameborder', 0);
 		newHtmlFrame.setAttribute('allowfullscreen', true);
@@ -1525,15 +1555,25 @@ if (htmlFrame != null) {
 	
 	var delContent = document.getElementsByClassName('pad-t-md');
 	delContent[delContent.length-2].parentNode.removeChild(delContent[delContent.length-2]);
+	
+	delContent[delContent.length-2] = null;
+	
 	delContent = document.getElementsByClassName('type-center type-hs-bottom pad-y-0 pad-x-lg');
 	delContent[delContent.length-1].parentNode.removeChild(delContent[delContent.length-1]);
+	
+	delContent[delContent.length-1] = null;
+	
 	delContent = document.getElementsByClassName('mar-x-auto disp-bl');
 	delContent[delContent.length-2].parentNode.removeChild(delContent[delContent.length-2]);
+	
+	delContent[delContent.length-2] = null;
 	
 	var lc = document.getElementsByClassName('mar-b-lg');
 	var linkChange = lc[(lc.length-1)];
 	var linkParent = linkChange.parentNode;
 	linkParent.removeChild(linkChange);
+	
+	linkChange = null;
 	
 	var d1 = document.createElement('div');
 	var t1 = document.createElement('span');
@@ -1553,6 +1593,9 @@ if (htmlFrame != null) {
 		
 		var htmlFrameParent = htmlFrame.parentNode;
 		htmlFrameParent.removeChild(htmlFrame);
+		
+		htmlFrame = null;
+		
 		var newHtmlFrame = document.createElement('iframe');
 		newHtmlFrame.setAttribute('frameborder', 0);
 		newHtmlFrame.setAttribute('allowfullscreen', true);
@@ -1567,15 +1610,26 @@ if (htmlFrame != null) {
 	
 	var delContent = document.getElementsByClassName('pad-t-md');
 	delContent[delContent.length-2].parentNode.removeChild(delContent[delContent.length-2]);
+	
+	delContent[delContent.length-2] = null;
+	
 	delContent = document.getElementsByClassName('type-center type-hs-bottom pad-y-0 pad-x-lg');
 	delContent[delContent.length-1].parentNode.removeChild(delContent[delContent.length-1]);
+	
+	delContent[delContent.length-1] = null;
+	
 	delContent = document.getElementsByClassName('mar-x-auto disp-bl');
 	delContent[delContent.length-2].parentNode.removeChild(delContent[delContent.length-2]);
+	
+	delContent[delContent.length-2] = null;
+	
 	
 	var lc = document.getElementsByClassName('mar-b-lg');
 	var linkChange = lc[(lc.length-1)];
 	var linkParent = linkChange.parentNode;
 	linkParent.removeChild(linkChange);
+	
+	linkChange = null;
 	
 	var d1 = document.createElement('div');
 	var t1 = document.createElement('span');
@@ -1595,6 +1649,9 @@ if (htmlFrame != null) {
 		
 		var htmlFrameParent = htmlFrame.parentNode;
 		htmlFrameParent.removeChild(htmlFrame);
+		
+		htmlFrame = null;
+		
 		var newHtmlFrame = document.createElement('iframe');
 		newHtmlFrame.setAttribute('frameborder', 0);
 		newHtmlFrame.setAttribute('allowfullscreen', true);
@@ -1609,17 +1666,30 @@ if (htmlFrame != null) {
 	
 	var delContent = document.getElementsByClassName('pad-t-md');
 	delContent[delContent.length-2].parentNode.removeChild(delContent[delContent.length-2]);
+	
+	delContent[delContent.length-2] = null;
+	
 	delContent = document.getElementsByClassName('type-center type-hs-bottom pad-y-0 pad-x-lg');
 	delContent[delContent.length-1].parentNode.removeChild(delContent[delContent.length-1]);
+	
+	delContent[delContent.length-1] = null;
+	
 	delContent = document.getElementsByClassName('mar-x-auto disp-bl');
 	delContent[delContent.length-2].parentNode.removeChild(delContent[delContent.length-2]);
+	
+	delContent[delContent.length-2] = null;
+	
 	delContent = document.getElementsByClassName('o_story-nav type-hs-copy line-tight pad-x-0 pad-x-lg--md mar-b-lg');
 	delContent[delContent.length-2].parentNode.removeChild(delContent[delContent.length-2]);
+	
+	delContent[delContent.length-2] = null;
 	
 	var lc = document.getElementsByClassName('mar-b-lg');
 	var linkChange = lc[(lc.length-1)];
 	var linkParent = linkChange.parentNode;
 	linkParent.removeChild(linkChange);
+	
+	linkChange = null;
 	
 	var d1 = document.createElement('div');
 	var t1 = document.createElement('span');
@@ -1636,8 +1706,13 @@ if (htmlFrame != null) {
 	var delContent = document.getElementsByClassName('pad-t-md');
 	var htmlFrameParent = delContent[delContent.length-1].parentNode;
 	delContent[delContent.length-1].parentNode.removeChild(delContent[delContent.length-1]);
+	
+	delContent[delContent.length-1] = null;
+	
 	delContent = document.getElementsByClassName('type-center type-hs-bottom pad-y-0 pad-x-lg');
 	delContent[delContent.length-1].parentNode.removeChild(delContent[delContent.length-1]);
+	
+	delContent[delContent.length-1] = null;
 	
 	var newHtmlFrame = document.createElement('iframe');
 	newHtmlFrame.setAttribute('frameborder', 0);
@@ -1654,6 +1729,8 @@ if (htmlFrame != null) {
 	var linkChange = lc[(lc.length-1)];
 	var linkParent = linkChange.parentNode;
 	linkParent.removeChild(linkChange);
+	
+	linkChange = null;
 	
 	var d1 = document.createElement('div');
 	var t1 = document.createElement('span');
@@ -1674,6 +1751,9 @@ if (htmlFrame != null) {
 		
 		var htmlFrameParent = htmlFrame.parentNode;
 		htmlFrameParent.removeChild(htmlFrame);
+		
+		htmlFrame = null;
+		
 		var newHtmlFrame = document.createElement('iframe');
 		newHtmlFrame.setAttribute('frameborder', 0);
 		newHtmlFrame.setAttribute('allowfullscreen', true);
@@ -1688,10 +1768,18 @@ if (htmlFrame != null) {
 	
 	var delContent = document.getElementsByClassName('pad-t-md');
 	delContent[delContent.length-2].parentNode.removeChild(delContent[delContent.length-2]);
+
+	delContent[delContent.length-2] = null;
+
 	delContent = document.getElementsByClassName('type-center type-hs-bottom pad-y-0 pad-x-lg');
 	delContent[delContent.length-1].parentNode.removeChild(delContent[delContent.length-1]);
+	
+	delContent[delContent.length-1] = null;
+	
 	delContent = document.getElementsByClassName('mar-x-auto disp-bl');
 	delContent[delContent.length-2].parentNode.removeChild(delContent[delContent.length-2]);
+	
+	delContent[delContent.length-2] = null;
 	
 }else if (url == 2792){
 	
@@ -1701,16 +1789,34 @@ if (htmlFrame != null) {
 	}
 	delContent = document.getElementsByClassName('pad-t-md');
 	delContent[delContent.length-1].parentNode.removeChild(delContent[delContent.length-1]);
+	
+	delContent[delContent.length-1] = null;
+	
 	delContent = document.getElementsByClassName('pad-t-md');
 	delContent[delContent.length-1].parentNode.removeChild(delContent[delContent.length-1]);
+	
+	delContent[delContent.length-1] = null;
+	
 	delContent = document.getElementsByClassName('pad-t-md');
 	delContent[delContent.length-1].parentNode.removeChild(delContent[delContent.length-1]);
+	
+	delContent[delContent.length-1] = null;
+	
 	delContent = document.getElementsByClassName('pad-t-md');
 	delContent[delContent.length-1].parentNode.removeChild(delContent[delContent.length-1]);
+	
+	delContent[delContent.length-1] = null;
+	
 	delContent = document.getElementsByClassName('type-center type-hs-bottom pad-y-0 pad-x-lg');
 	delContent[delContent.length-1].parentNode.removeChild(delContent[delContent.length-1]);
+	
+	delContent[delContent.length-1] = null;
+	
 	delContent = document.getElementsByClassName('row bg-hs-gray bg-light-gray--md pad-b-md pad-b-lg--md pos-r');
 	delContent[delContent.length-1].parentNode.removeChild(delContent[delContent.length-1]);
+	
+	delContent[delContent.length-1] = null;
+	
 	
 	var htmlFrame = document.getElementById('animation_container');
 
@@ -1718,6 +1824,9 @@ if (htmlFrame != null) {
 		
 		var htmlFrameParent = htmlFrame.parentNode.parentNode;
 		htmlFrame.parentNode.removeChild(htmlFrame);
+		
+		htmlFrame = null;
+		
 		var newHtmlFrame = document.createElement('iframe');
 		newHtmlFrame.setAttribute('frameborder', 0);
 		newHtmlFrame.setAttribute('allowfullscreen', true);
@@ -1764,14 +1873,26 @@ if (htmlFrame != null) {
 	
 	delContent = document.getElementsByClassName('pad-t-md');
 	delContent[0].parentNode.removeChild(delContent[0]);
+	
+	delContent[0] = null;
 		
 	
 }else if (url == 4815){
 	
 		var htmlP = document.getElementsByTagName('body');
 		var htmlFrameParent = htmlP[0];
-		htmlP[0].removeChild(htmlP[0].firstChild);
-		htmlP[0].removeChild(htmlP[0].firstChild);
+		
+		var a = htmlP[0].firstChild;
+		
+		htmlP[0].removeChild(a);
+		
+		a = null;
+		
+		var b = htmlP[0].firstChild;
+		
+		htmlP[0].removeChild(b);
+		
+		b = null;
 	
 		var newHtmlFrame = document.createElement('iframe');
 		newHtmlFrame.setAttribute('align', 'center');
@@ -1808,8 +1929,18 @@ if (htmlFrame != null) {
 	
 		var htmlP = document.getElementsByTagName('body');
 		var htmlFrameParent = htmlP[0];
-		htmlP[0].removeChild(htmlP[0].firstChild);
-		htmlP[0].removeChild(htmlP[0].firstChild);
+
+		var a = htmlP[0].firstChild;
+		
+		htmlP[0].removeChild(a);
+		
+		a = null;
+		
+		var b = htmlP[0].firstChild;
+		
+		htmlP[0].removeChild(b);
+		
+		b = null;
 	
 		var newHtmlFrame = document.createElement('iframe');
 		newHtmlFrame.setAttribute('align', 'center');
@@ -1847,8 +1978,18 @@ if (htmlFrame != null) {
 	
 		var htmlP = document.getElementsByTagName('body');
 		var htmlFrameParent = htmlP[0];
-		htmlP[0].removeChild(htmlP[0].firstChild);
-		htmlP[0].removeChild(htmlP[0].firstChild);
+
+		var a = htmlP[0].firstChild;
+		
+		htmlP[0].removeChild(a);
+		
+		a = null;
+		
+		var b = htmlP[0].firstChild;
+		
+		htmlP[0].removeChild(b);
+		
+		b = null;
 	
 		var newHtmlFrame = document.createElement('iframe');
 		newHtmlFrame.setAttribute('align', 'center');
@@ -1887,15 +2028,42 @@ if (htmlFrame != null) {
 }else if (url == 7635){
 	var	delContent = document.getElementById('animation_container');
 	delContent.parentNode.removeChild(delContent);
+	
+	delContent = null;
+	
 	delContent = document.getElementsByClassName('pad-t-md');
 	delContent[delContent.length-1].parentNode.removeChild(delContent[delContent.length-1]);
+	
+	delContent[delContent.length-1] = null;
+	
 	delContent = document.getElementsByClassName('mar-x-auto disp-bl');
 	
 	var htmlFrameParent = delContent[0];
-	htmlFrameParent.removeChild(htmlFrameParent.firstChild);
-	htmlFrameParent.removeChild(htmlFrameParent.firstChild);
-	htmlFrameParent.removeChild(htmlFrameParent.firstChild);
-	htmlFrameParent.removeChild(htmlFrameParent.firstChild);
+	
+	var a = htmlFrameParent.firstChild;
+	
+	htmlFrameParent.removeChild(a);
+	
+	a = null;
+	
+	var b = htmlFrameParent.firstChild;
+	
+	htmlFrameParent.removeChild(b);
+	
+	b = null;
+	
+	var c = htmlFrameParent.firstChild;
+	
+	htmlFrameParent.removeChild(c);
+	
+	c = null;
+	
+	var d = htmlFrameParent.firstChild;
+	
+	htmlFrameParent.removeChild(d);
+	
+	d = null;
+
 	
 	var newH2 = document.createElement('h2');
 	newH2.setAttribute('class','pad-t-md pad-x-lg--md type-center type-hs-header line-tight');
